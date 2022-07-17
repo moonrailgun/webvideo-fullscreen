@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Webvideo FullScreen",
+  "version": "0.0.1",
+  "icons": {
+    "128": "./assets/icon128.png"
+  },
+  "action": {
+    "default_title": "Trans"
+  },
+  "background": {
+    "service_worker": "background.ts",
+    "type": "module"
+  },
+  "permissions": ["scripting"],
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/injected.ts"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
