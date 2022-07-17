@@ -1,7 +1,7 @@
 /**
  * whitelist
  */
-const whitelistPlayerRootSelector = ['.plyr'];
+const whitelistPlayerRootSelector = ['.plyr', '.player-box > .player-box-main'];
 const flag = '__webvideo_fullscreen';
 
 export function createFullscreenStyle() {
@@ -16,6 +16,8 @@ export function createFullscreenStyle() {
   position: fixed;
   inset: 0;
   z-index: 99999999;
+  width: auto;
+  height: auto;
 }
 
 .${flag} > video, video.${flag} {
