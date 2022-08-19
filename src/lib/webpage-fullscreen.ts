@@ -1,7 +1,13 @@
 /**
  * whitelist
+ *
+ * 在白名单中的选择器会优先选择
  */
-const whitelistPlayerRootSelector = ['.plyr', '.player-box > .player-box-main'];
+const whitelistPlayerRootSelector = [
+  '.plyr',
+  '.player-box > .player-box-main',
+  'iframe[src^="https://danmu.yhdmjx.com"]',
+];
 const flag = '__webvideo_fullscreen';
 
 export function createFullscreenStyle() {
@@ -21,11 +27,17 @@ export function createFullscreenStyle() {
 }
 
 .${flag} > video, video.${flag} {
-  // 处理简单场景的情况
+  /* 处理简单场景的情况 */
   width: 100%;
   height: 100%;
   max-width: 100%;
   max-height: 100%;
+}
+
+iframe.${flag} {
+  /* 处理iframe情况 */
+  width: 100%;
+  height: 100%;
 }
 `;
 
