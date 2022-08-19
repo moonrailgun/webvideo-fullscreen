@@ -5,12 +5,18 @@ function injectedFunction(extensionId: string) {
     var b = document.createElement('script');
     b.setAttribute('src', `chrome-extension://${extensionId}/lib/injected.js`);
     document.body.appendChild(b);
+    b.addEventListener('load', () => {
+      console.log('注入代码加载完毕, 开启网页全屏');
+      window['__webvideo_fullscreen_fn'].start();
+    });
   } else {
     console.log('不能重复注入');
   }
 
   // 注入完毕后切换状态
-  window['__webvideo_fullscreen_fn'].toggle();
+  if (window['__webvideo_fullscreen_fn']) {
+    window['__webvideo_fullscreen_fn'].toggle();
+  }
 }
 
 chrome.action.onClicked.addListener(function (tab) {

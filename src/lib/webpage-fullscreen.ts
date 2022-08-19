@@ -108,8 +108,10 @@ export function stop() {
 
 export function toggle() {
   if (document.querySelector(`.${flag}`)) {
+    console.log('网页视频退出全屏');
     stop();
   } else {
+    console.log('网页视频全屏');
     start();
   }
 }
