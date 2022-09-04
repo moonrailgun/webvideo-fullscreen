@@ -70,6 +70,13 @@ function smartGetVideoContainer(videoEl: HTMLVideoElement): HTMLElement | null {
   return null;
 }
 
+// Esc退出网页全屏
+window.addEventListener('keyup', (e) => {
+  if (e.code === 'Escape') {
+    stop();
+  }
+});
+
 export function start() {
   for (const selector of whitelistPlayerRootSelector) {
     const container = document.querySelector(selector);
