@@ -4,6 +4,7 @@
  * 在白名单中的选择器会优先选择
  */
 const whitelistPlayerRootSelector = [
+  '#player-theater-container', // Youtube
   '.plyr',
   '.player-box > .player-box-main',
   'iframe[src^="https://danmu.yhdmjx.com"]',
@@ -16,14 +17,15 @@ export function createFullscreenStyle() {
   }
 
   const s = document.createElement('style');
-
   s.innerHTML = `
 .${flag} {
-  position: fixed;
-  inset: 0;
-  z-index: 99999999;
-  width: auto;
-  height: auto;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999999 !important;
+  width: auto !important;
+  height: auto !important;
+  max-height: 100vh !important;
+  max-width: 100vw !important;
 }
 
 .${flag} > video, video.${flag} {
@@ -84,6 +86,7 @@ export function start() {
       // 找到容器
       console.log('找到白名播放器容器:', selector);
       container.classList.add(flag);
+      window.dispatchEvent(new Event('resize')); // 主动触发一次resize事件，因为部分播放器(如youtube) 会根据窗口大小手动调整视频画面位置
       return;
     }
   }
@@ -101,6 +104,7 @@ export function start() {
   if (container) {
     console.log('智能模式找到播放器容器:', container);
     container.classList.add(flag);
+    window.dispatchEvent(new Event('resize')); // 主动触发一次resize事件，因为部分播放器(如youtube) 会根据窗口大小手动调整视频画面位置
     return;
   }
 
@@ -110,6 +114,7 @@ export function start() {
 export function stop() {
   document.querySelectorAll(`.${flag}`).forEach((el) => {
     el.classList.remove(flag);
+    window.dispatchEvent(new Event('resize')); // 主动触发一次resize事件，因为部分播放器(如youtube) 会根据窗口大小手动调整视频画面位置
   });
 }
 
