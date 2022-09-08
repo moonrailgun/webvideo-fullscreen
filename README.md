@@ -8,3 +8,13 @@ yarn install
 rm -rf dist
 yarn build
 ```
+
+### Chrome Store
+
+- [https://chrome.google.com/webstore/detail/webvideo-fullscreen/cfgiodgnkinmacjkgjgdejeciohojglp](https://chrome.google.com/webstore/detail/webvideo-fullscreen/cfgiodgnkinmacjkgjgdejeciohojglp)
+
+### Screenshot
+
+![](./docs/1.jpg)
+
+![](./docs/2.jpg)
