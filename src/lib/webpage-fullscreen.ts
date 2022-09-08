@@ -8,6 +8,7 @@ const whitelistPlayerRootSelector = [
   '.plyr',
   '.player-box > .player-box-main',
   'iframe[src^="https://danmu.yhdmjx.com"]',
+  'iframe[src^="https://tup.yinghuacd.com/"]',
 ];
 const flag = '__webvideo_fullscreen';
 
@@ -30,16 +31,16 @@ export function createFullscreenStyle() {
 
 .${flag} > video, video.${flag} {
   /* 处理简单场景的情况 */
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
 }
 
 iframe.${flag} {
   /* 处理iframe情况 */
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
 }
 `;
 
