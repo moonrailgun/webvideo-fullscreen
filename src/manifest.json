@@ -6,7 +6,7 @@
     "128": "./assets/icon128.png"
   },
   "action": {
-    "default_title": "Trans"
+    "default_title": "Full-window"
   },
   "background": {
     "service_worker": "background.ts",
