@@ -9,6 +9,7 @@ const whitelistPlayerRootSelector = [
   '.player-box > .player-box-main',
   'iframe[src^="https://danmu.yhdmjx.com"]',
   'iframe[src^="https://tup.yinghuacd.com/"]',
+  'iframe[src^="https://dood.la"]',
 ];
 const flag = '__webvideo_fullscreen';
 
